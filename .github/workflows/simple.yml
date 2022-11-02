@@ -1,0 +1,28 @@
+name: Shell Commands
+
+on: [push]
+
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo a string
+        run: echo "Hi I am running this first time"
+      - name: multiline script
+        run: |
+          node -v 
+          npm -v
+      - name: python Commands
+        run: |
+          import platform
+          print(platform.processor())
+          print('Hi I am print function')
+        shell: python
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: Directory powershell
+        run: Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash

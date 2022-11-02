@@ -1,0 +1,15 @@
+name: action workflow
+#description:  "lab actions testing"
+
+on: [push]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple application
+        id: greet
+        uses: shirishpatil2022/cptestrepository@testbranches
+        with:
+          who-to-greet: Ram
+      - name: Log Greeting time
+        run: echo "${{steps.greet.outputs.time}}"
